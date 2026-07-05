@@ -1,0 +1,7 @@
+Patient_ID,Receipt_Date,Report_Type,Country,Product,Event
+SYN-001,2026-01-05,Spontaneous,US,Product A,Headache
+SYN-001,2026-01-05,Spontaneous,US,Product A,Nausea
+SYN-002,2026-01-06,Clinical Study,CA,Product B,Rash
+SYN-003,2026-01-06,Literature,GB,Product C,Dizziness
+SYN-003,2026-01-06,Literature,GB,Product C,Fatigue
+SYN-004,2026-01-07,Spontaneous,AU,Product D,Vomiting

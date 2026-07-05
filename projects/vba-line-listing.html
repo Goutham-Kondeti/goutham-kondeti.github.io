@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Excel VBA automation case study for configurable patient-level splitting of pharmacovigilance line listings.">
+  <meta name="author" content="Goutham Kondeti">
+  <meta name="theme-color" content="#0b6b6b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Configurable VBA Line-Listing Splitter | Goutham Kondeti">
+  <meta property="og:description" content="Excel VBA automation case study for configurable patient-level splitting of pharmacovigilance line listings.">
+  <title>Configurable VBA Line-Listing Splitter | Goutham Kondeti</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Goutham Kondeti",
+    "email":"mailto:goutham.kondeti@gmail.com",
+    "jobTitle":"Healthcare Informatics and Pharmacovigilance Professional",
+    "address":{"@type":"PostalAddress","addressLocality":"Chicago","addressRegion":"IL","addressCountry":"US"},
+    "alumniOf":[
+      {"@type":"CollegeOrUniversity","name":"Governors State University"},
+      {"@type":"CollegeOrUniversity","name":"Andhra University"}
+    ],
+    "sameAs":["https://www.linkedin.com/in/goutham-kondeti","https://github.com/Goutham-Kondeti"]
+  }</script>
+</head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="../index.html" aria-label="Goutham Kondeti home"><span class="brand-mark">GK</span><span>Goutham Kondeti</span></a>
+    <nav class="nav-links" data-nav-links aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../projects.html" aria-current="page">Projects</a><a href="../experience.html">Experience</a><a href="../resume.html">Resume</a><a href="../index.html#contact">Contact</a></nav>
+    <div class="nav-actions">
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Switch theme"><span data-theme-icon aria-hidden="true">◐</span></button>
+      <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../projects.html">Projects</a><span>/</span><span>Configurable VBA Line-Listing Splitter</span></nav><p class="eyebrow">Automation case study</p><h1>Configurable Excel VBA Line-Listing Splitter</h1><p class="lead">A portfolio-safe recreation of an automation used to separate high-volume pharmacovigilance line listings by patient identifier while adapting to changing spreadsheet layouts.</p><div class="case-meta"><div><strong>Tool</strong><span>Excel VBA</span></div><div><strong>Input</strong><span>Variable line-listing layouts</span></div><div><strong>Output</strong><span>Files or worksheets by patient</span></div><div><strong>Impact</strong><span>~1 day → ~5 minutes</span></div></div><div class="card case-banner"><img src="../assets/images/vba-automation.svg" alt="Workflow showing a source line listing, interactive VBA configuration and patient-level outputs"></div></div></section>
+<section class="section-sm"><div class="container case-layout"><article class="case-content">
+<section id="overview"><p class="eyebrow">Overview</p><h2>Replacing repetitive patient-level splitting with a controlled, reusable workflow.</h2><p>Vendor and business-partner line listings could contain more than 100 patient records. Each patient’s rows needed to be separated for downstream intake and case creation. Manual preparation was slow, repetitive and vulnerable to file-naming, row-selection and omission errors.</p><div class="impact-grid"><div class="impact"><strong>100+</strong><span>patient records possible in one source file</span></div><div class="impact"><strong>2 modes</strong><span>separate workbooks or multiple worksheets</span></div><div class="impact"><strong>~5 min</strong><span>applicable preparation after automation</span></div></div></section>
+<section id="challenge"><p class="eyebrow">Design challenge</p><h2>The source structure was not always stable.</h2><div class="grid-2"><div><h3>Why fixed macros failed</h3><ul class="list-clean"><li>The patient identifier could appear in a different column.</li><li>The used data range could change from one line listing to another.</li><li>Some patients had multiple rows that had to remain together.</li><li>Different users needed either separate files or a single workbook with patient worksheets.</li></ul></div><div><h3>Design response</h3><ul class="list-clean"><li>Prompt the user to select the complete source range.</li><li>Prompt the user to select the patient-identifier header.</li><li>Discover unique identifiers dynamically.</li><li>Preserve the header and all rows belonging to each patient.</li><li>Sanitize output names and handle cancellations or invalid selections.</li></ul></div></div></section>
+<section id="workflow"><p class="eyebrow">Interactive workflow</p><h2>Configuration happens through prompts—not code edits.</h2><div class="process"><div class="process-step"><div><h4>Select source range</h4><p>The user selects the full line listing, including the header row, so the macro adapts to different row and column counts.</p></div></div><div class="process-step"><div><h4>Select patient identifier</h4><p>The user clicks the identifier header, removing the need to hard-code a column letter.</p></div></div><div class="process-step"><div><h4>Choose output mode</h4><p>The macro can create one workbook per patient or one workbook containing separate patient worksheets.</p></div></div><div class="process-step"><div><h4>Validate and group</h4><p>Blank identifiers are ignored, duplicate identifiers are grouped and every matching row remains with the correct patient.</p></div></div><div class="process-step"><div><h4>Create controlled outputs</h4><p>File and sheet names are sanitized, headers are retained and outputs are formatted for review.</p></div></div></div></section>
+<section id="controls"><p class="eyebrow">Reliability controls</p><h2>Automation with visible safeguards.</h2><div class="data-table-wrap"><table><thead><tr><th>Control</th><th>Purpose</th></tr></thead><tbody><tr><td>Range and header validation</td><td>Prevents the user from selecting a patient field outside the chosen data range.</td></tr><tr><td>Blank-identifier handling</td><td>Avoids creating ambiguous patient files.</td></tr><tr><td>Case-insensitive grouping</td><td>Treats equivalent identifiers consistently.</td></tr><tr><td>Safe file and sheet names</td><td>Removes characters that Excel or Windows cannot use.</td></tr><tr><td>Unique worksheet naming</td><td>Prevents naming conflicts after truncation.</td></tr><tr><td>Cancellation and error handling</td><td>Restores Excel settings and gives the user a clear message.</td></tr></tbody></table></div></section>
+<section id="downloads"><p class="eyebrow">Portfolio-safe demonstration</p><h2>Review the generic implementation.</h2><p>The downloadable macro is an independent recreation with synthetic field names. It does not contain employer data, production mappings, PHI, client-specific rules or proprietary code.</p><div class="btn-row"><a class="btn btn-primary" href="../assets/code/Configurable_Line_Listing_Splitter.bas" download>Download VBA module</a><a class="btn btn-secondary" href="../assets/code/Synthetic_Line_Listing.csv" download>Download synthetic sample</a><a class="btn btn-ghost" href="../assets/code/README_Line_Listing_Splitter.md" target="_blank">Read setup guide</a></div></section>
+<section id="impact"><p class="eyebrow">Business impact</p><h2>Faster preparation with stronger consistency.</h2><ul class="list-clean"><li>Reduced applicable line-listing preparation from approximately a full working day to about five minutes.</li><li>Reduced repetitive copying and the risk of assigning rows to the wrong patient output.</li><li>Made the solution reusable across different patient-identifier columns and source ranges.</li><li>Supported a controlled fallback when vendor template changes disrupted system-level automation.</li><li>Demonstrated the ability to translate a pharmacovigilance operational bottleneck into a practical technical solution.</li></ul></section>
+<section id="limitations"><p class="eyebrow">Limitations and next steps</p><h2>Appropriate controls still matter.</h2><p>The macro should be validated against the current line-listing structure before production use. Future improvements could add a preview screen, row-count reconciliation, exception logs, duplicate-file handling, protected templates and configuration profiles for approved vendor formats.</p></section>
+</article><aside class="case-sidebar"><nav class="card toc" aria-label="Case study contents"><strong>On this page</strong><a href="#overview">Overview</a><a href="#challenge">Challenge</a><a href="#workflow">Workflow</a><a href="#controls">Controls</a><a href="#downloads">Downloads</a><a href="#impact">Impact</a><a href="#limitations">Limitations</a></nav><div class="callout small" style="margin-top:14px"><strong>Privacy:</strong> Generic code and synthetic data only. No PHI, client mappings or employer-owned source code.</div></aside></div></section>
+</main><footer class="site-footer">
+  <div class="container footer-grid">
+    <div>© <span data-year></span> Goutham Kondeti. All rights reserved.</div>
+    <div class="footer-links"><a href="../projects.html">Projects</a><a href="../resume.html">Resume</a><a href="https://www.linkedin.com/in/goutham-kondeti" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Goutham-Kondeti" target="_blank" rel="noopener">GitHub</a><a href="mailto:goutham.kondeti@gmail.com">Email</a></div>
+  </div>
+</footer>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+<script src="../assets/js/main.js" defer></script>
+</body></html>

@@ -1,0 +1,32 @@
+# Personal maintenance documents
+DEPLOYMENT.md
+EDITING_GUIDE.md
+PRIVACY_AND_CONFIDENTIALITY.md
+
+# Archives
+*.zip
+*.rar
+*.7z
+
+# Master experience and journal source files
+Master_*.docx
+*_Journal.docx
+*Journal*.docx
+
+# Microsoft Office temporary files
+~$*
+*.tmp
+*.bak
+
+# Windows and macOS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor settings
+.vscode/
+.idea/
+
+# Internal screenshots
+portfolio_screens/
+screenshots_private/
