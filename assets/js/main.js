@@ -150,3 +150,53 @@
   window.addEventListener('afterprint', () => printStates.forEach(([el, open]) => el.open = open));
   $$('.print-profile').forEach(button => button.addEventListener('click', () => window.print()));
 })();
+
+/* User-controlled schematic walkthroughs. Content comes from editable stages. */
+(() => {
+  'use strict';
+  const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('[data-work-visual]').forEach(root=>{
+    const stages=[...root.querySelectorAll('[data-work-stage]')];
+    const play=root.querySelector('[data-work-play]'),progress=root.querySelector('.work-progress');
+    if(!stages.length || !play || !progress)return;
+    let index=0,timer=null;
+    const quiet=()=>preference.matches || document.documentElement.classList.contains('motion-paused');
+    function stop(){
+      if(timer!==null)window.clearInterval(timer);
+      timer=null;root.dataset.workPlaying='false';
+      play.textContent=quiet()?'Motion reduced':index===stages.length-1?'Replay walkthrough':'Play walkthrough';
+    }
+    function select(next){
+      index=Math.max(0,Math.min(stages.length-1,next));
+      root.dataset.workStep=String(index);
+      stages.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
+      progress.textContent=`Stage ${index+1} of ${stages.length} · ${stages[index].querySelector('strong')?.textContent || ''}`;
+    }
+    stages.forEach((button,i)=>{
+      button.disabled=false;
+      button.addEventListener('click',()=>{select(i);stop();});
+      button.addEventListener('keydown',event=>{
+        let next;
+        if(event.key==='ArrowRight')next=Math.min(stages.length-1,i+1);
+        if(event.key==='ArrowLeft')next=Math.max(0,i-1);
+        if(event.key==='Home')next=0;
+        if(event.key==='End')next=stages.length-1;
+        if(next!==undefined){event.preventDefault();select(next);stop();stages[next].focus();}
+      });
+    });
+    play.addEventListener('click',()=>{
+      if(timer!==null || quiet())return stop();
+      if(index===stages.length-1)select(0);
+      root.dataset.workPlaying='true';play.textContent='Pause walkthrough';
+      timer=window.setInterval(()=>{
+        select(index+1);
+        if(index===stages.length-1)stop();
+      },2400);
+    });
+    const updatePreference=()=>{if(quiet())stop();play.disabled=quiet();if(timer===null)stop();};
+    preference.addEventListener?.('change',updatePreference);
+    new MutationObserver(updatePreference).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+    select(0);updatePreference();
+  });
+})();
