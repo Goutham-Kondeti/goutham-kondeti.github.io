@@ -1,0 +1,96 @@
+Product screenshot provenance
+
+FileBridge screenshots: Goutham-Kondeti/FileBridge, docs/images/, public main branch.
+The original image bytes are unchanged and show demonstration paths and synthetic files.
+
+StudiBuddi screenshots: Goutham-Kondeti/StudiBuddi, docs/screenshots/, public main branch.
+These are the owner's genuine installed Windows and Android emulator/test views.
+StudiBuddi images remain copyright 2026 StudiBuddi; all rights reserved.
+Their inclusion here is for the owner's portfolio and does not grant a general reuse license.
+
+FileBridge license follows:
+
+MIT License
+
+Copyright (c) 2026 FileBridge contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+DupVet screenshots: genuine unchanged owner screenshots from Goutham-Kondeti/DupVet, commit 2e652b59e13857d5aa9f2a32f7086ca6db2fdc24. Synthetic Project Aurora demonstration files.
+
+MIT License
+
+Copyright (c) 2026 Goutham Kondeti
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+# DupVet notices
+
+DupVet is developed and maintained by Goutham Kondeti.
+
+OpenAI Codex was used as a development assistant for product exploration, UI design, implementation, testing, packaging, and documentation. The project is not affiliated with or endorsed by OpenAI. OpenAI and Codex are trademarks of OpenAI.
+
+The DupVet name, icon, and product presentation were created specifically for this project. The icon does not use third-party logos or copied product artwork.
+
+The MIT License in [LICENSE](LICENSE) applies to the original source code in this repository. Third-party software remains under its own license; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+This notice is informational, not legal advice. No license or disclaimer can guarantee that a person will never face a claim. A qualified lawyer should review the name, privacy policy, installer, and sales terms before a paid commercial launch.
+
+
+Anatomy Atlas screenshots: unchanged existing owner application captures. Code adapted from Human Atlas by ashemag. Model credits, licenses and adaptation details accompany these images in ANATOMY-ATTRIBUTION.txt.
+
+MIT License
+
+Copyright (c) 2026 ashemag
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

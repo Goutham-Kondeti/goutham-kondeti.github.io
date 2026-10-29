@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://goutham-kondeti.github.io/sitemap.xml
+Sitemap: https://gouthamkondeti.com/sitemap.xml

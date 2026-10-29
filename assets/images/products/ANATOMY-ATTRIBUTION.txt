@@ -1,0 +1,69 @@
+Anatomy Atlas — screenshot and source credits
+
+Application adaptation: Goutham Kondeti. Renderer adapted from ashemag/Human Atlas (MIT). Screenshots are unchanged captures of the application; source geometry has the adaptations described below.
+
+# Anatomy data attribution
+
+## BodyParts3D male reference
+
+BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International.
+
+- License: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html (updated 2025-02-27)
+- Dataset: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html
+- License terms: https://creativecommons.org/licenses/by/4.0/
+- Source geometry: `isa_BP3D_4.0_obj_99.zip`, BodyParts3D 4.0.
+- English names and relationships: IS-A and PART-OF concept, element, and inclusion tables from the same archive.
+- Publication: Mitsuhashi et al. (2009), BodyParts3D: 3D structure database for anatomical concepts. https://doi.org/10.1093/nar/gkn613
+
+Adaptations: axes and units converted from millimeters/Z-up to meters/Y-up; translated to rest at the stage; geometry simplified using meshoptimizer with 0.2% relative error limit per structure; normals quantized to signed 16-bit; packed into binary chunks; curated display system groupings and colors. The source contains 2,234 individual OBJ meshes; all remain represented. The combined hierarchy contains 3,432 named FMA concepts, which may reference multiple meshes. Original source identity is preserved in the manifest.
+
+Source OBJ comments mention an older CC BY-SA 2.1 Japan license. The official current database license linked above supersedes that legacy text and explicitly permits redistribution and adaptation under CC BY 4.0.
+
+BodyParts3D represents an adult male reference anatomy based on TARO MRI and anatomical illustration refinements. It is not a complete model of every possible human anatomical structure or variation. This interface is educational and is not a clinical tool.
+
+## Human Reference Atlas female reference
+
+Kristen Browne and Heidi Schlehlein, Human Reference Atlas / HuBMAP, *3D Reference Organ Set for Female v1.10*. CC BY 4.0. The packaged model uses v1.10 as its primary source and restores eight pelvic structures from v1.5.
+
+- HRA reference library: https://humanatlas.io/3d-reference-library
+- Primary metadata: https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/metadata.json
+- Primary GLB: https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/assets/3d-vh-f-united.glb
+- Pelvis supplement metadata: https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.5/metadata.json
+- Pelvis supplement GLB: https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.5/assets/3d-vh-f-united.glb
+- License: https://creativecommons.org/licenses/by/4.0/
+- Conversion and fitting source: https://github.com/slorksmo/Human-Atlas/commit/5bb5713aab18d7fe9380c3339eb09f173491ea06
+- HRA background: Börner et al. (2023), Specimen, biological structure, and spatial ontologies in support of a Human Reference Atlas. https://doi.org/10.1038/s41597-023-01993-8
+- Primary female reference imagery: Visible Human Project, U.S. National Library of Medicine. https://www.nlm.nih.gov/research/visible/visible_human.html
+
+Adaptations: source node transforms are baked into the geometry and the native meter/Y-up coordinates are translated onto the stage. Coincident vertices are welded, source normals are averaged or derived where absent, geometry is simplified with a 0.2% per-structure relative error bound, normals are quantized, and geometry is packed into binary chunks. Display systems follow the source scene graph, with selected subtrees split into more useful viewer systems; names with obvious source spelling errors are corrected for display only. The package preserves 964 HRA-derived meshes: 956 from v1.10 and eight ischium/pubis meshes restored from v1.5.
+
+The v1.5 supplement is limited to the named `VH_F_ischium` and `VH_F_pubis` subtrees. Shared skeletal geometry in v1.5 and v1.10 matches in world space, so these eight meshes are carried into the same coordinate frame without fitting or approximation. This restores the source's female pelvis rather than filling that region with male-derived geometry.
+
+## Visible Human Female lower-limb muscles
+
+Thor E. Andreassen, Donald R. Hume, Landon D. Hamilton, Karen E. Walker, Sean E. Higinbotham, and Kevin B. Shelburne, *Three Dimensional Lower Extremity Musculoskeletal Geometry of the Visible Human Female and Male*, Scientific Data 10, 34 (2023). CC BY 4.0.
+
+- Publication: https://doi.org/10.1038/s41597-022-01905-2
+- Dataset: https://digitalcommons.du.edu/visiblehuman/1/
+- Collection: https://digitalcommons.du.edu/visiblehuman/
+- Package used: `Final 3D STL Models-stl.zip` (Visible Human Female)
+- License: https://creativecommons.org/licenses/by/4.0/
+- Underlying imagery: Visible Human Project, U.S. National Library of Medicine. https://www.nlm.nih.gov/research/visible/visible_human.html
+
+The female atlas adds 76 lower-limb muscles from this dataset because the HRA source has very limited muscle coverage. Millimetres are converted to metres. A single coordinate-system rotation is calculated from the centres of twelve shared bones, then each hip, thigh, and lower-leg muscle group receives a least-squares uniform scale and translation fitted to the pelvis, femur, patella, tibia, and fibula shared by the two datasets. The meshes are not non-uniformly distorted. Vertices are welded, normals are derived and quantized, and the same 0.2% per-structure simplification bound is used. Fitted scales and bone-agreement residuals remain recorded in `atlas-female.json`.
+
+The HRA assembly and the University of Denver lower-limb models were produced by separate teams and processing pipelines. The HRA uses Visible Human Project data for its female reference space and also incorporates other reference components; the University of Denver supplement was segmented from the NLM Visible Human Female images. The fitted muscles are therefore identified as a separate supplement, not as native HRA geometry. The University of Denver bones, cartilage, ligaments, and fat models are not included.
+
+## BodyParts3D bones borrowed for female-source gaps
+
+The HRA female source does not include a skull, ribs, shoulder girdle, arm, hand, or foot skeleton. The package fills those gaps with 180 bones copied from the BodyParts3D male reference credited above: 22 skull and facial structures, 38 ribs and costal-cartilage structures, 64 shoulder/arm/hand structures, and 28 structures for each foot and ankle. Only bones are borrowed; no BodyParts3D muscle is placed on the female reference.
+
+Each region is placed using a least-squares uniform scale and translation fitted to anatomy present in both references. Arms and feet are then rotated as rigid structures about their joints to follow the female body surface. Nothing is non-uniformly stretched; fitted anchors land within 25 mm, and the per-region transforms and residuals are retained in `atlas-female.json`. The source mesh identifiers remain traceable and the borrowed structures are assigned to their own display system.
+
+These 180 structures are male-derived placeholders for approximate shape and position. They do not represent female-specific skeletal variation outside the pelvis, and the arm posture remains an approximation. They should be replaced when a compatible, complete, openly redistributable female skeleton becomes available.
+
+## Coverage and use limits
+
+The packaged female atlas contains 1,220 structures and 1,439 named concepts: 964 HRA-derived meshes, 76 fitted lower-limb muscles, and 180 borrowed bones. The HRA component provides a whole-body surface and selected organs, including female reproductive anatomy, but its skeletal and muscle coverage is partial. There is no compatible open upper-limb muscle set in this release. Eight placenta and umbilical structures are classified as pregnancy reference anatomy.
+
+This is a composite educational reference assembled across HRA releases and independently processed datasets. It is not a complete model of every human structure or variation, and it is not an untouched single-source scan. The male and female references differ in coverage and level of detail, so direct mesh-count comparisons do not measure anatomical completeness. Anatomy Atlas is not a diagnostic, surgical-planning, or clinical decision tool.
